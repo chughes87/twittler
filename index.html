@@ -3,24 +3,29 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="moment.min.js"></script>
   </head>
   <body>
-
     <script>
       var add_tweets = function(tweets) {
         var $body = $('body');
+        $body.html('');
         for(var i = 0; i < tweets.length; i++){
           var tweet = tweets[i];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': \"' + tweet.message + '\" tweeted on: ' + tweet.created_at);
-          $tweet.prependTo($body);
+          var $line1 = $('<div></div>');
+          var $line2 = $('<div></div>');
+          var time = moment(tweet.created_at);
+          $line1.text('@' + tweet.user + '      ' + time.fromNow());
+          $line2.text("\"" + tweet.message + "\"");
+          $line2.prependTo($body);
+          $line1.prependTo($body);
         }
       }
 
       var refresh = function(previousCount) {
         var currentCount = streams.home.length;
         if( currentCount > previousCount){
-          add_tweets(streams.home.slice(previousCount, currentCount));
+          add_tweets(streams.home);
         }
         return currentCount;
       }
