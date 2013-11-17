@@ -1,10 +1,25 @@
 <style>
-  div {
-    height: 10px;
+  span{}
+  h2 {
+    text-indent: 150px;
+    color: white;
+    height: 20px;
+  }
+  body {
+    font-family: sans-serif;
+    background-image: url(images/background.jpg);
+    background-size: 100%;
+  }
+  button {
+    height: 30px;
+    width: 80px;
+    background-color: #EFF2FB;
+    border-radius: 10px;
+    font-size: 90%;
+    box-shadow: 5px 5px 5px rgba(9,9,9,0.5);
   }
   #tweet {
     color: black;
-    border: 2px solid #ccc;
     border-radius: 10px;
     padding: 5px;
     margin: 10px auto;
@@ -29,23 +44,5 @@
     width: 400px;
     float: left;
     margin: 5px;
-  }
-  body {
-    font-family: sans-serif;
-    background-image: url(images/background.jpg);
-    background-size: 100%;
-  }
-  h2 {
-    text-indent: 150px;
-    color: white;
-    height: 20px;
-  }
-  button {
-    height: 30px;
-    width: 80px;
-    background-color: #EFF2FB;
-    border-radius: 10px;
-    font-size: 90%;
-    box-shadow: 5px 5px 5px rgba(9,9,9,0.5);
   }
 </style>
