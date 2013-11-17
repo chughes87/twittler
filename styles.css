@@ -1,16 +1,14 @@
 <style>
   div {
     height: 10px;
-    margin: 10px;
-    padding: 20px;
   }
   #tweet {
     color: black;
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 5px;
-    margin: 5px auto;
-    box-shadow: 3px 3px 3px #999999;
+    margin: 10px auto;
+    box-shadow: 5px 5px 5px rgba(9,9,9,0.5);
     background-color: #EFF2FB;
   }
   #message {
@@ -40,5 +38,13 @@
   h2 {
     text-indent: 150px;
     color: white;
+    height: 20px;
+  }
+  button {
+    height: 30px;
+    width: 80px;
+    background-color: #EFF2FB;
+    border-radius: 10px;
+    font-size: 90%;
   }
 </style>

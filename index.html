@@ -61,6 +61,11 @@
             clear_tweets("right-column");
           }
         }
+        if(selected_user !== "") {
+            $(".clear").show();
+        }else {
+            $(".clear").hide();
+        }
       }
 
       $(document).ready(function(){
