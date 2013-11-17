@@ -17,9 +17,17 @@
   #user {
     font-weight: bold;
     float: left;
+    cursor: pointer;
+    color: blue;
   }
   #time {
     color: grey;
+    float: right;
+  }
+  #left-column {
+    float: left;
+  }
+  #right-column {
     float: right;
   }
 
