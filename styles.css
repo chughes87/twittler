@@ -5,7 +5,6 @@
     padding: 20px;
   }
   #tweet {
-    width: 400px;
     color: black;
     border: 2px solid #ccc;
     padding: 5px;
@@ -24,11 +23,13 @@
     color: grey;
     float: right;
   }
-  #left-column {
+  #column1 {
+    width: 400px;
     float: left;
   }
-  #right-column {
-    float: right;
+  #column2 {
+    width: 400px;
+    float: left
   }
 
 </style>
