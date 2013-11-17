@@ -46,5 +46,6 @@
     background-color: #EFF2FB;
     border-radius: 10px;
     font-size: 90%;
+    box-shadow: 5px 5px 5px rgba(9,9,9,0.5);
   }
 </style>
