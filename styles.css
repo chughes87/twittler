@@ -11,6 +11,7 @@
     padding: 5px;
     margin: 5px auto;
     box-shadow: 3px 3px 3px #999999;
+    background-color: #EFF2FB;
   }
   #message {
     text-align: left;
@@ -33,5 +34,11 @@
   }
   body {
     font-family: sans-serif;
+    background-image: url(images/background.jpg);
+    background-size: 100%;
+  }
+  h2 {
+    text-indent: 150px;
+    color: white;
   }
 </style>
