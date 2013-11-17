@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>CSS demo</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="moment.min.js"></script>
+    <script src="handlebars-v1.1.2.js"></script>
+    <script id="tweet-template" type="text/x-handlebars-template">
+      <span id="user">@{{user_name}}</span>
+      <span id="time">{{time}}</span>
+      <br />
+      <span id="message">{{message}}</span>
+    </script>
+    <meta charset="utf-8">
+
   </head>
   <body>
     <script>
       var add_tweets = function(tweets) {
         var $body = $('body');
         $body.html('');
+
+        var tweet_html;
+        var $tweet; 
+
+        var source = $("#tweet-template").html();
+        var template = Handlebars.compile(source);
+        var context;
+
         for(var i = 0; i < tweets.length; i++){
-          var tweet = tweets[i];
-          var $line1 = $('<div></div>');
-          var $line2 = $('<div></div>');
-          var time = moment(tweet.created_at);
-          $line1.text('@' + tweet.user + '      ' + time.fromNow());
-          $line2.text("\"" + tweet.message + "\"");
-          $line2.prependTo($body);
-          $line1.prependTo($body);
+          $tweet = $('<div id="tweet"></div>');
+          context = {user_name: tweets[i].user, time: moment(tweets[i].created_at).fromNow(), message: tweets[i].message};
+          tweet_html = template(context);
+          $tweet.html(tweet_html);
+          $tweet.prependTo($body);
         }
       }
 
@@ -34,7 +50,7 @@
         var tweetCount = 0;
         setInterval(function(){
           tweetCount = refresh(tweetCount);
-        }, 300);
+        }, 3000);
       });
 
     </script>
