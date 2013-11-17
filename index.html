@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS demo</title>
+    <title>Twittler</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -30,8 +30,12 @@
         var context;
 
         for(var i = 0; i < tweets.length; i++){
-          $tweet = $('<div id="tweet"></div>');
-          context = {user_name: tweets[i].user, time: moment(tweets[i].created_at).fromNow(), message: tweets[i].message};
+          $tweet = $('<div id="tweet" style="clear: both;"></div>');
+          context = {
+            user_name: tweets[i].user
+            ,time: moment(tweets[i].created_at).fromNow()
+            ,message: tweets[i].message
+          };
           tweet_html = template(context);
           $tweet.html(tweet_html);
           $tweet.prependTo($body);
