@@ -51,27 +51,47 @@
         $column.html('');
       }
 
-      var refresh = function() {//previous_total) {
-        add_tweets(streams.home.slice(-10), "left-column");
-        if( selected_user !== ""){
-          add_tweets(streams.users[selected_user].slice(-10), "right-column");
-        }else{
-          clear_tweets("right-column");
+      var refresh = function(column) {
+        if(column == "left-column") {
+          add_tweets(streams.home.slice(-10), column);
+        }else if(column == "right-column"){
+          if(selected_user !== "") {
+            add_tweets(streams.users[selected_user].slice(-10), column);
+          }else {
+            clear_tweets("right-column");
+          }
         }
       }
 
       $(document).ready(function(){
-        setInterval(function(){
-          refresh();
-        }, 3000);
+        refresh("left-column");
 
-        $('#user').click(function() {
-          selected_user = this.html().slice(1);
+        $('#column1').delegate("#user", "click", function() {
+          selected_user = this.textContent.slice(1);
+          refresh('right-column');
+        });
+
+        $('.refresh').on('click', function(){
+          refresh('left-column');
+          refresh('right-column');
+        });
+
+        $('.clear').on('click', function() {
+          clear_tweets('right-column');
+          selected_user = '';
+          refresh('right-column');
         });
       });
-
     </script>
-    <div id="left-column"></div>
-    <div id="right-column"></div>
+    <div id="column1">
+      <button class="refresh">refresh</button>
+      <br />
+      <div id="left-column"></div>
+    </div>
+    <div id="column2">
+      <button class="clear">clear</button>
+      <br />
+      <div id="right-column"></div>
+    </div>
   </body>
 </html>
