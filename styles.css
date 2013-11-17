@@ -7,7 +7,10 @@
   #tweet {
     color: black;
     border: 2px solid #ccc;
+    border-radius: 10px;
     padding: 5px;
+    margin: 5px auto;
+    box-shadow: 3px 3px 3px #999999;
   }
   #message {
     text-align: left;
@@ -23,13 +26,12 @@
     color: grey;
     float: right;
   }
-  #column1 {
+  #column {
     width: 400px;
     float: left;
+    margin: 5px;
   }
-  #column2 {
-    width: 400px;
-    float: left
+  body {
+    font-family: sans-serif;
   }
-
 </style>

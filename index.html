@@ -17,20 +17,19 @@
 
   </head>
   <body>
+    <div class="header">
+      <h2> Twittler </h2>
+    </div>
     <script>
       var selected_user = "shawndrost";
 
       var add_tweets = function(tweets, column) {
-
-        var $column = $('#'+column);
-        $column.html('');
-
+        var context;
         var tweet_html;
         var $tweet; 
-
+        var $column = clear_tweets(column);
         var source = $("#tweet-template").html();
         var template = Handlebars.compile(source);
-        var context;
 
         for(var i = 0; i < tweets.length; i++){
           $tweet = $('<div id="tweet" style="clear: both;"></div>');
@@ -49,6 +48,7 @@
       var clear_tweets = function(column) {
         var $column = $('#'+column);
         $column.html('');
+        return $column;
       }
 
       var refresh = function(column) {
@@ -66,7 +66,7 @@
       $(document).ready(function(){
         refresh("left-column");
 
-        $('#column1').delegate("#user", "click", function() {
+        $('#column').delegate("#user", "click", function() {
           selected_user = this.textContent.slice(1);
           refresh('right-column');
         });
@@ -83,12 +83,12 @@
         });
       });
     </script>
-    <div id="column1">
+    <div id="column">
       <button class="refresh">refresh</button>
       <br />
       <div id="left-column"></div>
     </div>
-    <div id="column2">
+    <div id="column">
       <button class="clear">clear</button>
       <br />
       <div id="right-column"></div>
